@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class MainManager {
-	// TODO Auto-generated method stub
+public class MainManager
+{
 	static final String URL = "jdbc:mysql://localhost:3306/hotel";
 	static final String USER = "root";
 	static final String PASS = "root";
@@ -17,7 +17,6 @@ public class MainManager {
 	        Connection con = DriverManager.getConnection(URL, USER, PASS);
 	        Scanner sc = new Scanner(System.in);
 	        
-	        // Object for Classes to be called
 	        Guest guest=new Guest();
 	        Room room=new Room();
 	        FoodItems foodItems=new FoodItems();
@@ -42,12 +41,10 @@ public class MainManager {
 	                	System.out.println("------------------------------------");
 	                	System.out.println("Opted for Stay at Hotel (Lodging)");
 	                	System.out.println("------------------------------------");
-	                	guest.addGuest(con, sc);
-	                	System.out.println("------------------------------------");
-	                    System.out.println("Thanks for Registering with Us");
-	                    System.out.println("------------------------------------");
-	                	//System.out.println("Do You Want to Want to See the Guest List ? (Yes/No) ");
-	                	//String str=sc.next();
+	                    // System.out.println("Thanks for Registering with Us");
+	                    // System.out.println("------------------------------------");
+	                	// System.out.println("Do You Want to Want to See the Guest List ? (Yes/No) ");
+	                	// String str=sc.next();
 	                	// if(str.equals("Yes") || str.equals("yes")) guest.displayAllGuests(con);
 	                	room.displayAllRooms(con);
 	                	System.out.println("Enter the Room Id which you want to Book : ");
@@ -64,14 +61,15 @@ public class MainManager {
 	                    break;
 	                case 3:
 	                	System.out.println("------------------------------------");
-	                    System.out.println("Our Services : ");
+	                    System.out.println("Services offered by us : ");
 	                    System.out.println("------------------------------------");
 	                    System.out.println("Stay at Hotel (Lodging)");
 	                    System.out.println("Dine at Restaurant Only (Dining)");
 	                    System.out.println("-------------------------------------");
-	                    System.out.println("Kindly Choosse 1 or 2 ");
-	                    System.out.println("To enjoy any of the above Services");
-	                    System.out.println("--------------------------------------");
+	                    System.out.println("Kindly Choose 1 for Lodging.");
+	                    System.out.println("Kindly Choose 2 for Dining.");
+	                    System.out.println("Thanks for Visiting our Hotel. Have a great day !");
+	                    System.out.println("-------------------------------------------------");
 	                    break;
 	                case 4:
 	                	System.out.println("-----------------------------------------------");

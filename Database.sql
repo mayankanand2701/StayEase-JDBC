@@ -76,5 +76,18 @@ CREATE TABLE FoodOrders (
 );
 Select * from FoodOrders;
 
+CREATE TABLE Payments (
+  payment_id INT AUTO_INCREMENT PRIMARY KEY,
+  booking_id INT,
+  order_id INT,
+  amount DECIMAL(10,2),
+  payment_date DATE,
+  payment_mode VARCHAR(50),
+  FOREIGN KEY (booking_id) REFERENCES Bookings(booking_id),
+  FOREIGN KEY (order_id) REFERENCES Food_Orders(order_id)
+);
+
+Select * from payments;
+
 
 
