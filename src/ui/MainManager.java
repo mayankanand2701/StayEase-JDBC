@@ -50,25 +50,23 @@ public class MainManager
 	                case 1:
 	                	System.out.println("------------------------------------");
 	                	System.out.println("Opted for Stay at Hotel (Lodging)");
+	                	System.out.println("Kindly fill your details : ");
+	                	guest.addGuest(con, sc);
 	                	System.out.println("------------------------------------");
-	                    // System.out.println("Thanks for Registering with Us");
-	                    // System.out.println("------------------------------------");
-	                	// System.out.println("Do You Want to Want to See the Guest List ? (Yes/No) ");
-	                	// String str=sc.next();
-	                	// if(str.equals("Yes") || str.equals("yes")) guest.displayAllGuests(con);
+	                    System.out.println("Thanks for Registering with Us");
+	                    System.out.println("------------------------------------");
 	                	room.displayAllRooms(con);
 	                	System.out.println("Enter the Room Id which you want to Book : ");
 	                	int id=sc.nextInt();
-	                	if(room.bookRoom(con, id))
-	                	{
-	                		guest.addGuest(con, sc);
-	                	}
-	                    
 	                    break;
 	                case 2:
 	                	System.out.println("------------------------------------");
 	                	System.out.println("Opted for Dine at Restaurant Only (Dining)");
 	                	System.out.println("------------------------------------");
+	                	guest.addGuest(con, sc);
+	                	System.out.println("------------------------------------");
+	                    System.out.println("Thanks for Registering with Us");
+	                    System.out.println("------------------------------------");
 	                	foodItems.displayFoodMenu(con);
 	                	foodOrder.placeFoodOrder(con, sc, -1, -1);
 	                    break;
