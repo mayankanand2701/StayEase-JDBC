@@ -1,9 +1,19 @@
-package com.hotel;
+package ui;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Scanner;
+
+import dao.FoodItemsDAO;
+import dao.FoodOrderDAO;
+import dao.GuestDAO;
+import dao.RoomDAO;
+import service.FoodItemsService;
+import service.FoodOrderService;
+import service.GuestService;
+import service.RoomService;
+
 
 public class MainManager
 {
@@ -17,10 +27,10 @@ public class MainManager
 	        Connection con = DriverManager.getConnection(URL, USER, PASS);
 	        Scanner sc = new Scanner(System.in);
 	        
-	        Guest guest=new Guest();
-	        Room room=new Room();
-	        FoodItems foodItems=new FoodItems();
-	        FoodOrder foodOrder=new FoodOrder();
+	        GuestDAO guest = new GuestService();
+	        RoomDAO room = new RoomService();
+	        FoodItemsDAO foodItems = new FoodItemsService();
+	        FoodOrderDAO foodOrder = new FoodOrderService();
 	        
 	        while (true) {
 	            System.out.println("---- Hotel Management System ----");
@@ -49,7 +59,10 @@ public class MainManager
 	                	room.displayAllRooms(con);
 	                	System.out.println("Enter the Room Id which you want to Book : ");
 	                	int id=sc.nextInt();
-	                	room.bookRoom(con, id);
+	                	if(room.bookRoom(con, id))
+	                	{
+	                		guest.addGuest(con, sc);
+	                	}
 	                    
 	                    break;
 	                case 2:
